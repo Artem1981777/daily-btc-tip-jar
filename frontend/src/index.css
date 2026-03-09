@@ -1,0 +1,13 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #050810;
+  color: #c8d8f0;
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+}
+
+button { font-family: inherit; }
+input  { font-family: inherit; }
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
