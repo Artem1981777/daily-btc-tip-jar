@@ -1,0 +1,13 @@
+{
+  "name": "daily-btc-tip-jar-contract",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "asc src/TipJar.ts --config asconfig.json --outFile build/TipJar.wasm"
+  },
+  "dependencies": {
+    "@btc-vision/btc-runtime": "latest"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.27.0"
+  }
+}
