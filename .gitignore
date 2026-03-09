@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+*.wasm
+*.wat
+.env
+.env.local
+.env.*.local
+.vscode/
+.idea/
+*.log
+*.tsbuildinfo
+contract/build/
+.DS_Store
