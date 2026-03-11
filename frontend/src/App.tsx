@@ -36,11 +36,16 @@ export default function App() {
       setStatus("sending");
       const w = window.opnet || window.unisat;
       if (!w) { setStatus("error"); return; }
+      const selector = new Uint8Array([0x7d, 0x19, 0xd5, 0xb7]);
+      const amountHex = BigInt(amount).toString(16).padStart(64, "0");
+      const amountBytes = new Uint8Array(amountHex.match(/.{2}/g).map(b => parseInt(b, 16)));
+      const calldata = new Uint8Array([...selector, ...amountBytes]);
       const result = await w.signAndBroadcastInteraction({
         to: CONTRACT,
-        calldata: "0x" + "7d19d5b7" + BigInt(amount).toString(16).padStart(64,"0"),
+        calldata: calldata,
         feeRate: 2,
         priorityFee: 1000n,
+        gasSatFee: 1000n,
       });
       console.log("tx:", result);
       setBalance(b => b + amount);
