@@ -1,0 +1,14 @@
+{
+  "name": "tip-jar-contract",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "asc src/index.ts --target release --measure --uncheckedBehavior never"
+  },
+  "dependencies": {
+    "@btc-vision/btc-runtime": "^1.11.0-rc.10",
+    "@btc-vision/opnet-transform": "^1.2.0"
+  },
+  "devDependencies": {
+    "assemblyscript": "latest"
+  }
+}
