@@ -37,9 +37,9 @@ export default function App() {
       const w = window.opnet || window.unisat;
       if (!w) { setStatus("error"); return; }
       const result = await w.signAndBroadcastInteraction({
-        contractAddress: CONTRACT,
-        calldata: "0x" + "7d19d5b7" + amount.toString(16).padStart(64,"0"),
-        satsPerByte: 2,
+        to: CONTRACT,
+        calldata: "0x" + "7d19d5b7" + BigInt(amount).toString(16).padStart(64,"0"),
+        feeRate: 2,
         priorityFee: 1000n,
       });
       console.log("tx:", result);
