@@ -15,6 +15,12 @@ export default function App() {
 
   const canTip = connected && seconds === 0;
 
+  async function debugWallet() {
+    const w = window.opnet || window.unisat;
+    const methods = Object.keys(w).join(", ");
+    alert(methods);
+  }
+
   async function connect() {
     try {
       const w = window.opnet || window.unisat;
@@ -70,6 +76,7 @@ export default function App() {
       <button onClick={sendTip} disabled={!canTip} style={{width:"100%",padding:"1rem",background:canTip?"#00d4ff":"#0d1525",color:canTip?"#000":"#4a6080",border:"none",cursor:canTip?"pointer":"not-allowed",fontSize:"1rem",fontWeight:"bold"}}>
         {status==="sending"?"◌ Confirm...":status==="success"?"✓ SENT!":status==="error"?"✗ Error":"⚡ SEND TIP"}
       </button>
+      <button onClick={debugWallet} style={{width:"100%",marginTop:"0.5rem",padding:"0.5rem",background:"#1a1a2e",border:"1px solid #ff2d78",color:"#ff2d78",cursor:"pointer"}}>🔍 DEBUG WALLET</button>
       <div style={{marginTop:"2rem",padding:"1rem",background:"#0a0f1e",border:"1px solid rgba(0,212,255,0.15)"}}>
         <div style={{color:"#00d4ff",marginBottom:"0.5rem"}}>◈ RECENT TIPS ({tips.length})</div>
         {tips.length===0 ? <div style={{color:"#4a6080"}}>No tips yet ⚡</div> : tips.map((t,i) => <div key={i} style={{display:"flex",justifyContent:"space-between",padding:"0.3rem 0",borderBottom:"1px solid rgba(0,212,255,0.1)"}}><span>{t.sender}</span><span style={{color:"#00ff9f"}}>{t.amount} sats</span></div>)}
