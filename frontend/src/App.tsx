@@ -44,6 +44,7 @@ export default function App() {
       const result = await w.signAndBroadcastInteraction({
         to: CONTRACT,
         calldata: calldata,
+        from: address,
         utxos: utxos,
         feeRate: 2,
         priorityFee: 1000n,
