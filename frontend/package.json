@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@btc-vision/transaction": "^1.8.0",
+    "opnet": "^1.8.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
