@@ -38,7 +38,8 @@ export default function App() {
       if (!w) { setStatus("error"); return; }
       const utxos = await w.getBitcoinUtxos();
       const amountHex = BigInt(amount).toString(16).padStart(64, "0");
-      const calldata = amountHex;
+      const amountBytes = new Uint8Array(amountHex.match(/.{2}/g).map(b => parseInt(b, 16)));
+      const calldata = new Uint8Array([0x97, 0x38, 0x01, 0x87, ...amountBytes]);
       const result = await w.signAndBroadcastInteraction({
         to: CONTRACT,
         contract: CONTRACT,
