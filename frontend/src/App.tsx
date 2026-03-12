@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const CONTRACT = import.meta.env.VITE_CONTRACT_ADDRESS || "opt1sqzuur7s4l7j05jhcq6hlve97zgj6kwr9qqxj29qh";
+const CONTRACT = import.meta.env.VITE_CONTRACT_ADDRESS || "opt1sqrnsnps05t4equwjyw9q32ja6g9qq5ps5cvp3c6u";
 const COOLDOWN = 86400;
 
 export default function App() {
