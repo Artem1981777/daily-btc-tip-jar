@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const CONTRACT = import.meta.env.VITE_CONTRACT_ADDRESS || "opt1sqrnsnps05t4equwjyw9q32ja6g9qq5ps5cvp3c6u";
+const CONTRACT = import.meta.env.VITE_CONTRACT_ADDRESS || "opt1sx4zxatfp6y4h0av8gprd8fjn32h4h5rwyvjrm3pv3sk4pxnxe28s4regh3";
 const COOLDOWN = 86400;
 
 export default function App() {
@@ -37,10 +37,8 @@ export default function App() {
       const w = window.opnet || window.unisat;
       if (!w) { setStatus("error"); return; }
       const utxos = await w.getBitcoinUtxos();
-      const selector = new Uint8Array([0x97, 0x38, 0x01, 0x87]);
       const amountHex = BigInt(amount).toString(16).padStart(64, "0");
-      const amountBytes = new Uint8Array(amountHex.match(/.{2}/g).map(b => parseInt(b, 16)));
-      const calldata = new Uint8Array([...selector, ...amountBytes]);
+      const calldata = "0x97380187" + amountHex;
       const result = await w.signAndBroadcastInteraction({
         to: CONTRACT,
         contract: CONTRACT,
