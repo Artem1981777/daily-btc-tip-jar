@@ -38,7 +38,7 @@ export default function App() {
       if (!w) { setStatus("error"); return; }
       const utxos = await w.getBitcoinUtxos();
       const amountHex = BigInt(amount).toString(16).padStart(64, "0");
-      const calldata = "0x97380187" + amountHex;
+      const calldata = amountHex;
       const result = await w.signAndBroadcastInteraction({
         to: CONTRACT,
         contract: CONTRACT,
