@@ -37,7 +37,7 @@ export default function App() {
       const w = window.opnet || window.unisat;
       if (!w) { setStatus("error"); return; }
       const utxos = await w.getBitcoinUtxos();
-      const selector = new Uint8Array([0x0a, 0x0f, 0xc1, 0xe7]);
+      const selector = new Uint8Array([0x97, 0x38, 0x01, 0x87]);
       const amountHex = BigInt(amount).toString(16).padStart(64, "0");
       const amountBytes = new Uint8Array(amountHex.match(/.{2}/g).map(b => parseInt(b, 16)));
       const calldata = new Uint8Array([...selector, ...amountBytes]);
