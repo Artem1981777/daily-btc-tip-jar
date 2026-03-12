@@ -70,7 +70,7 @@ export default function App() {
     <div style={{minHeight:"100vh",background:"#050810",color:"#c8d8f0",fontFamily:"monospace",padding:"2rem"}}>
       {showAnim && <div style={{position:"fixed",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:"8rem",zIndex:999,pointerEvents:"none"}}>⚡</div>}
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",borderBottom:"1px solid rgba(0,212,255,0.15)",paddingBottom:"1rem",marginBottom:"2rem"}}>
-        <div><div style={{fontSize:"1.5rem",color:"#00d4ff",fontWeight:"bold"}}>₿ DAILY TIP JAR</div><div style={{fontSize:"0.65rem",color:"#4a6080"}}>OPNet Testnet</div></div>
+        <div><div style={{fontSize:"1.5rem",color:"#00d4ff",fontWeight:"bold"}}>₿ DAILY TIP JAR</div><div style={{fontSize:"0.65rem",color:"#4a6080"}}>OPNet Testnet v2</div></div>
         {connected ? <div style={{color:"#00ff9f"}}>● {address.slice(0,6)}...{address.slice(-4)}</div> : <button onClick={connect} style={{background:"transparent",border:"1px solid #00d4ff",color:"#00d4ff",padding:"0.5rem 1rem",cursor:"pointer"}}>◈ Connect OP_WALLET</button>}
       </div>
       <div style={{marginBottom:"1rem",padding:"1rem",background:"#0a0f1e",border:"1px solid rgba(0,212,255,0.15)"}}>
